@@ -1,6 +1,24 @@
 /* styles.css */
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+  padding: 30px 20px;
+  background-color: #f8f8f8;
+  color: black;
+  margin-top: 60px;
+  margin-left: 40px;
+  border-radius: 5px;
+  position: sticky;
+  top: 20px;
+  z-index: 10;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .genero-container {
@@ -8,11 +26,86 @@ body {
   padding: 20px;
   border: 1px solid #ccc;
   background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  color: #333;
 }
 
+.genero {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.pelicula {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease; box-shadow: 0.3s ease;
+}
+
+.pelicula:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 1.5);
+}
+
+.pelicula img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.pelicula h3 {
+  font-size: 1rem;
+  color: #333;
+  margin: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
+/* Responsividad */
+
+/* Para pantallas de más de 1200px (por ejemplo, escritorios grandes) */
+@media (min-width: 1200px) {
+  .pelicula {
+    flex: 1 1 calc(16.666% - 20px); /* 6 tarjetas por fila */
+  }
+}
+
+/* Para pantallas entre 900px y 1200px (por ejemplo, escritorios medianos) */
+@media (max-width: 1199px) and (min-width: 900px) {
+  .pelicula {
+    flex: 1 1 calc(25% - 20px); /* 4 tarjetas por fila */
+  }
+}
+
+/* Para pantallas entre 600px y 900px (por ejemplo, tabletas) */
+@media (max-width: 899px) and (min-width: 600px) {
+  .pelicula {
+    flex: 1 1 calc(33.333% - 20px); /* 3 tarjetas por fila */
+  }
+}
+
+/* Para pantallas más pequeñas, como móviles */
+@media (max-width: 599px) {
+  .pelicula {
+    flex: 1 1 calc(50% - 20px); /* 2 tarjetas por fila */
+  }
+}
 
